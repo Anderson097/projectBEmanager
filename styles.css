@@ -13,17 +13,18 @@ body{
     margin: 2rem auto;
 }
 
-nav{
+nav {
     padding: .5rem;
     background-color: #fff;
     border-radius: 10px;
     border: 2px solid #eeeeee;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between;  /* Ensures space between items */
+    position: relative; /* Make the nav container relative to position items inside */
 }
 
-.nav > button{
+nav > button {
     width: 30px;
     height: 30px;
     border-color: #ededed;
@@ -33,11 +34,16 @@ nav{
     border-radius: 5px;
 }
 
-.nav > button > img{
+nav > button > img {
     width: 18px;
 }
 
-/* styling for extensions */
+.themeToggle {
+    cursor: pointer;
+    position: absolute; 
+    right: 10px; 
+    top: 13px;  
+}
 
 .extensionTabs{
     display: flex;
@@ -214,3 +220,129 @@ body.dark-mode .tabButtons > button:first-child {
     cursor: pointer;
   }
   
+/* ===================== Responsive Styles ===================== */
+
+/* For tablet and smaller screens */
+@media (max-width: 768px) {
+    .genLayout {
+        margin: 2rem;
+    }
+
+    nav {
+        justify-content: space-between; 
+    }
+
+    .themeToggle {
+        right: 15px; 
+        top: 18px;
+    }
+
+    .extensionTabs {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .extensionTabs > h3 {
+        font-size: 1.5rem;
+    }
+
+    .tabButtons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .extensionWrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    .extensionCard {
+        height: auto;
+        padding: 1rem;
+    }
+
+    .cardContent > h2 {
+        font-size: 1.2rem;
+    }
+
+    .cardContent > p {
+        font-size: 14px;
+    }
+
+    .cardToggler {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .cardToggler > button {
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    .switch {
+        margin-left: 0;
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+    .genLayout {
+        margin: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .extensionTabs {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .extensionTabs > h3 {
+        font-size: 1.2rem;
+    }
+
+    .tabButtons > button {
+        padding: 0.3rem 0.6rem;
+        font-size: 12px;
+    }
+
+    .extensionWrapper {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .extensionCard {
+        height: auto;
+        padding: 0.8rem;
+    }
+
+    .cardContent > h2 {
+        font-size: 1rem;
+    }
+
+    .cardContent > p {
+        font-size: 12px;
+    }
+
+    .cardToggler {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .cardToggler > button {
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    .switch {
+        margin-left: 0;
+    }
+}
